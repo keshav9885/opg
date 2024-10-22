@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O.P GUPTA CONSTRUCTIONS - Professional Construction Services">
+    <title>O.P GUPTA CONSTRUCTIONS</title>
+    <style>
+        /* Body and General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Title Styles */
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.678);
+        }
+
+        /* Work Section */
+        .work-section {
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .work-item {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer; /* Make it look clickable */
+        }
+
+        /* Form Styles */
+        .form-section {
+            display: none; /* Initially hide the form */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        /* Arrows and Dots Styles */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            border: none;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="file:///C:/Users/arahi/OneDrive/Desktop/freepik__upload__12266.jpeg" alt="Construction Project 1">
+            <div class="title">O.P GUPTA CONSTRUCTIONS PVT.LTD</div>
+        </div>
+        <div class="mySlides">
+            <img src="file:///C:/Users/arahi/OneDrive/Desktop/freepik__upload__12266.jpeg" alt="Commercial Buildings">
+        </div>
+        <div class="mySlides">
+            <img src="file:///C:/Users/arahi/OneDrive/Desktop/freepik__upload__12266.jpeg" alt="Infrastructure">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <!-- Work Section -->
+    <div class="work-section">
+        <h2>Our Work</h2>
+        <div class="work-item" onclick="toggleForm()">Form</div>
+        <div class="work-item">Commercial Buildings</div>
+        <div class="work-item">Infrastructure Development</div>
+        <div class="work-item">Road Construction</div>
+        <div class="work-item">Renovation Services</div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-section" id="formSection">
+        <h2>form list</h2>
+
+    <footer>
+        <p>&copy; 2024 O.P Gupta Constructions. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Slideshow and Form Toggle -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        function toggleForm() {
+            let formSection = document.getElementById("formSection");
+            if (formSection.style.display === "none" || formSection.style.display === "") {
+                formSection.style.display = "block"; // Show the form
+            } else {
+                formSection.style.display = "none"; // Hide the form
+            }
+        }
+    </script>
+</body>
+</html>
